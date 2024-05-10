@@ -2,7 +2,13 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardMar
 
 
 take_seat_keyboard = ReplyKeyboardMarkup(keyboard=[
-    [KeyboardButton(text='Занять место🏖')]],
+    [KeyboardButton(text="Занять место🏖")]],
+    resize_keyboard=True
+)
+
+
+take_seat_done_keyboard = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text="Занял!⛱")]],
     resize_keyboard=True
 )
 

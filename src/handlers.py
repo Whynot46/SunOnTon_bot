@@ -13,11 +13,12 @@ import src.db as db
 
 
 router = Router()
+CHANEL_NAME = "@test_chanel_46"
 
 
 @router.message(F.text, Command("start"))
 async def start_loop(message: Message, bot: Bot):
-    await message.answer("☀️Привет! :3 Для начала, займи лежак на нашем пляже👇", reply_markup=kb.take_seat_keyboard)
+    await message.answer(f"☀️Привет! :3 Для начала, займи лежак на нашем пляже👇\n{CHANEL_NAME}", reply_markup=kb.take_seat_keyboard)
     if not db.is_old(message.from_user.id):
         db.add_new_user(message.from_user.id, message.from_user.full_name)
     db.add_shells(message.from_user.id, 10)
@@ -26,10 +27,26 @@ async def start_loop(message: Message, bot: Bot):
 
 @router.message(F.text == "Занять место🏖")
 async def take_seat(message: Message, bot: Bot):
-    await message.answer("🔆 Добро пожаловать на пляж SUN in SUM!\n"
+    user_channel_status = await bot.get_chat_member(chat_id=f"{CHANEL_NAME}", user_id=message.from_user.id)
+    if user_channel_status.status != 'left':
+        await message.answer("🔆 Добро пожаловать на пляж SUN in SUM!\n"
                         "Тут, ты можешь начать собирать ракушки🐚, которые, позже, можно будет обменять на солнышки $SUN🌞\n"
                         "Чем займемся сегодня?"
                         , reply_markup=kb.main_keyboard)
+    else:
+        await message.answer(f"Для начала, займи лежак на нашем пляже👇\n{CHANEL_NAME}", reply_markup=kb.take_seat_done_keyboard)
+
+
+@router.message(F.text == "Занял!⛱")
+async def сheck_bag(message: Message, bot: Bot):
+    user_channel_status = await bot.get_chat_member(chat_id=f"{CHANEL_NAME}", user_id=message.from_user.id)
+    if user_channel_status.status != 'left':
+        await message.answer("🔆 Добро пожаловать на пляж SUN in SUM!\n"
+                        "Тут, ты можешь начать собирать ракушки🐚, которые, позже, можно будет обменять на солнышки $SUN🌞\n"
+                        "Чем займемся сегодня?"
+                        , reply_markup=kb.main_keyboard)
+    else:
+        await message.answer(f"Для начала, займи лежак на нашем пляже👇\n{CHANEL_NAME}", reply_markup=kb.take_seat_done_keyboard)
     
     
 @router.message(F.text == "Проверить сумку👛")
@@ -68,7 +85,11 @@ async def сheck_bag(message: Message, bot: Bot):
 
 @router.message(F.text)
 async def unidentified_text(message: Message, bot: Bot):
-    await message.answer("🔆 Добро пожаловать на пляж SUN in SUM!\n"
+    user_channel_status = await bot.get_chat_member(chat_id=f"{CHANEL_NAME}", user_id=message.from_user.id)
+    if user_channel_status.status != 'left':
+        await message.answer("🔆 Добро пожаловать на пляж SUN in SUM!\n"
                         "Тут, ты можешь начать собирать ракушки🐚, которые, позже, можно будет обменять на солнышки $SUN🌞\n"
                         "Чем займемся сегодня?"
                         , reply_markup=kb.main_keyboard)
+    else:
+        await message.answer(f"Для начала, займи лежак на нашем пляже👇\n{CHANEL_NAME}", reply_markup=kb.take_seat_done_keyboard)

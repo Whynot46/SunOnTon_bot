@@ -18,7 +18,7 @@ def add_shells(user_id, shells):
 def add_invitation(user_id):
     connection = sql.connect('./db/User_db.db')
     cursor = connection.cursor()
-    cursor.execute('UPDATE Users SET num_invitations = num_invitations + 1 WHERE id = ?', (user_id,s))
+    cursor.execute('UPDATE Users SET num_invitations = num_invitations + 1 WHERE id = ?', (user_id,))
     connection.commit()
 
 
