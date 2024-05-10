@@ -9,7 +9,8 @@ cursor.execute('''
             id INTEGER PRIMARY KEY,
             full_name TEXT,
             balance INTEGER,
-            num_invitations INTEGER
+            ton_link TEXT,
+            invitations INTEGER
         )
         ''')
 
