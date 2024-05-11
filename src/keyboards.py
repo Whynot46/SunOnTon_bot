@@ -1,9 +1,8 @@
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 
 
-take_seat_keyboard = ReplyKeyboardMarkup(keyboard=[
-    [KeyboardButton(text="Занять место🏖")]],
-    resize_keyboard=True
+take_seat_keyboard = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text="Занять место🏖", url="https://t.me/test_chanel_46")]]
 )
 
 

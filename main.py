@@ -1,14 +1,13 @@
 import asyncio
-from aiogram import Bot, Dispatcher, types
-from aiogram.enums.parse_mode import ParseMode
+from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from src.handlers import router
 
 
-API_TOKEN = "API_KEY"
+API_TOKEN = "7198571497:AAFiVFmyzEQkq7HpV-xjYaodusZHCST0DxY"
 
 
-bot = Bot(token=API_TOKEN, parse_mode="HTML")
+bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot=bot, storage=MemoryStorage())
 
 
@@ -20,6 +19,7 @@ async def main():
                 
 if __name__ == "__main__":
     try:
+        print('Bot is running...')
         asyncio.run(main())
     except KeyboardInterrupt:
         print('Exit')
