@@ -2,13 +2,14 @@
 Telegram-бот SunOnTon_bot
 <br>
 
+https://github.com/Whynot46/SunOnTon_bot/assets/83154713/0cbf2663-6e18-49e3-8bd7-b1e852e10bc4
+
 ## Содержание
 - [Технологии](#технологии)
 - [Функционал](#функционал)
 - [Использование](#использование)
 - [Требования](#требования)
 - [Лицензия](#лицензия)
-- [Команда проекта](#команда-проекта)
 ## Технологии
 - [Python 3.10.0](https://www.python.org/downloads/release/python-3100/)
 - [Aiogram 3.5](https://docs.aiogram.dev/en/dev-3.x/)
@@ -56,5 +57,3 @@ pip3 install -r requirements.txt
 
 ## Лицензия
 Этот проект бесплатен для использования и не содержит какой-либо лицензии.
-## Команда проекта
-- [Алексей Пахалев](https://github.com/Whynot46)
